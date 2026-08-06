@@ -1,23 +1,98 @@
 aid: aro-biotherapeutics
 name: Aro Biotherapeutics
-description: 'Aro Biotherapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Aro Biotherapeutics is a Philadelphia-based biotechnology company developing tissue-targeted
+  genetic medicines built on Centyrins, a proprietary engineered human protein scaffold that is
+  small, stable and highly soluble. Aro conjugates Centyrins to oligonucleotide payloads
+  (Centyrin-siRNA conjugates) to deliver RNA- and DNA-based therapeutics precisely to cells and
+  tissues outside the liver, including muscle and immune cells. Its lead program, ABX1100, is a
+  CD71-targeted Centyrin-siRNA conjugate for Pompe disease that has received FDA orphan drug
+  designation. The company is privately held, raised a $41.5M Series B led by Cowen Healthcare
+  Investments with participation from Johnson & Johnson Innovation, and is headquartered at 601
+  Walnut Street, Philadelphia, PA. Aro publishes no developer program, API reference or SDK; the
+  only machine-readable surface on its domain is the Wix-platform llms.txt and Site MCP endpoint.
+image: https://static.wixstatic.com/media/55e8e9_a8e1814d42074178825df49af5a75963~mv2.jpg/v1/fill/w_1851,h_930,al_c/55e8e9_a8e1814d42074178825df49af5a75963~mv2.jpg
 url: https://raw.githubusercontent.com/api-evangelist/aro-biotherapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
-apis: []
+- Biotechnology
+- Therapeutics
+- Genetic Medicine
+- Life Sciences
+- Pharmaceuticals
+- Model Context Protocol
+apis:
+- aid: aro-biotherapeutics:site-mcp
+  name: Aro Biotherapeutics Site MCP
+  description: >-
+    A live, anonymously reachable Model Context Protocol endpoint served from Aro Biotherapeutics'
+    own host and advertised in the site's llms.txt. It is provided by the Wix platform, not built
+    by Aro — it exposes generic Wix site tools (business details, site search, site API docs
+    search, visitor-token issuance and a Wix REST API call/execute bridge) over the public content
+    of www.arobiotx.com. A tools/list call returns 9 tools with real JSON Schema inputs. There is
+    no Aro-authored API behind it.
+  humanURL: https://www.arobiotx.com/
+  baseURL: https://www.arobiotx.com/_api/mcp
+  tags:
+  - Model Context Protocol
+  - Website
+  properties:
+  - type: MCPServer
+    url: mcp/aro-biotherapeutics-mcp.yml
+  - type: LLMsTxt
+    url: llms/aro-biotherapeutics-llms.txt
+  - type: Authentication
+    url: authentication/aro-biotherapeutics-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Aro Biotherapeutics runs no developer programme and publishes no OpenAPI or SDK, but its Wix-hosted
+    site does serve a real llms.txt and a live, anonymously callable Site MCP endpoint at
+    /_api/mcp that returns 9 tools with JSON Schema inputs — both captured verbatim.
+  evidence:
+  - url: https://www.arobiotx.com/llms.txt
+    status: 200
+  - url: https://www.arobiotx.com/_api/mcp
+    status: 200
+  - url: https://www.arobiotx.com/openapi.json
+    status: 400
+  - url: https://www.arobiotx.com/.well-known/agent-card.json
+    status: 400
+  checked: '2026-08-06'
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.arobiotx.com/
+- type: MCPServer
+  url: mcp/aro-biotherapeutics-mcp.yml
+- type: LLMsTxt
+  url: llms/aro-biotherapeutics-llms.txt
+- type: Authentication
+  url: authentication/aro-biotherapeutics-authentication.yml
+- type: Conformance
+  url: conformance/aro-biotherapeutics-conformance.yml
+- type: DomainSecurity
+  url: security/aro-biotherapeutics-domain-security.yml
+- type: Blog
+  url: https://www.arobiotx.com/newsroom
+- type: Support
+  url: https://www.arobiotx.com/contact
+- type: TermsOfService
+  url: https://www.arobiotx.com/legal-notices
+- type: PrivacyPolicy
+  url: https://www.arobiotx.com/privacy-policy

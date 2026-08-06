@@ -1,0 +1,58 @@
+generated: '2026-08-06'
+method: searched
+source: https://www.arobiotx.com/llms.txt
+docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+scope: >-
+  Aro Biotherapeutics publishes no OpenAPI, no developer portal and no API key programme, so there
+  is no securityScheme to derive from. The only callable surface on the domain is the Wix-provided
+  Site MCP endpoint, and this profile records the auth model that endpoint actually enforces, as
+  observed live.
+summary:
+  types:
+  - none
+  - session-token
+  api_key_in: []
+  oauth2_flows: []
+  anonymous_discovery: true
+schemes:
+- name: anonymous
+  type: none
+  applies_to:
+  - 'MCP method: initialize'
+  - 'MCP method: tools/list'
+  description: >-
+    Discovery is unauthenticated. POST tools/list to https://www.arobiotx.com/_api/mcp with no
+    credentials returns HTTP 200 and the full 9-tool manifest with input schemas.
+  evidence:
+    url: https://www.arobiotx.com/_api/mcp
+    request: POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}
+    http_status: 200
+    fetched: '2026-08-06'
+- name: visitorToken
+  type: session-token
+  issued_by: GenerateVisitorToken
+  passed_as: visitorToken parameter on the tool call (not an HTTP header)
+  applies_to:
+  - CallWixSiteAPI
+  - ExecuteWixAPI
+  description: >-
+    Actions taken on a visitor's behalf require a visitor access token. An agent calls the
+    GenerateVisitorToken tool, which takes no parameters and creates an anonymous visitor session,
+    then passes the returned token as the visitorToken argument. This is a self-service anonymous
+    session, not an identity credential — no registration, account or approval step exists.
+  evidence:
+    url: https://www.arobiotx.com/_api/mcp
+    source: 'tools/list inputSchema: visitorToken listed in required[] for CallWixSiteAPI and ExecuteWixAPI'
+    http_status: 200
+    fetched: '2026-08-06'
+observations:
+- >-
+  GET (rather than POST) on https://www.arobiotx.com/_api/mcp returns HTTP 401 application/json,
+  confirming the endpoint enforces the MCP transport contract rather than answering everything 200.
+- >-
+  No OAuth metadata is published: /.well-known/oauth-authorization-server and
+  /.well-known/oauth-protected-resource both return 400 on this origin.
+- >-
+  ExecuteWixAPI is annotated destructiveHint:true and executes caller-supplied JavaScript against
+  the Wix REST API under the anonymous visitor session. Anyone on the internet can obtain that
+  session, so the effective trust boundary is whatever the Wix visitor role permits on this site.
