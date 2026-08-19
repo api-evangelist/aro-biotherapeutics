@@ -15,7 +15,7 @@ image: https://static.wixstatic.com/media/55e8e9_a8e1814d42074178825df49af5a7596
 url: https://raw.githubusercontent.com/api-evangelist/aro-biotherapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
