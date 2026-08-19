@@ -204,3 +204,11 @@ tools:
     readOnlyHint: false
     destructiveHint: true
     openWorldHint: false
+deployment:
+  mode: remote
+  endpoint: https://www.arobiotx.com/_api/mcp
+  verified: probed
+  probe: live
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
