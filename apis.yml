@@ -25,6 +25,14 @@ tags:
 - Genetic Medicine
 - Life Sciences
 - Pharmaceuticals
+- MCP
+tags_raw:
+- Company
+- Biotechnology
+- Therapeutics
+- Genetic Medicine
+- Life Sciences
+- Pharmaceuticals
 - Model Context Protocol
 apis:
 - aid: aro-biotherapeutics:site-mcp
@@ -39,6 +47,9 @@ apis:
   humanURL: https://www.arobiotx.com/
   baseURL: https://www.arobiotx.com/_api/mcp
   tags:
+  - MCP
+  - Website
+  tags_raw:
   - Model Context Protocol
   - Website
   properties:
