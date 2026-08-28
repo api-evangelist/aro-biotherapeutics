@@ -11,6 +11,17 @@ description: >-
   Investments with participation from Johnson & Johnson Innovation, and is headquartered at 601
   Walnut Street, Philadelphia, PA. Aro publishes no developer program, API reference or SDK; the
   only machine-readable surface on its domain is the Wix-platform llms.txt and Site MCP endpoint.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://static.wixstatic.com/media/55e8e9_a8e1814d42074178825df49af5a75963~mv2.jpg/v1/fill/w_1851,h_930,al_c/55e8e9_a8e1814d42074178825df49af5a75963~mv2.jpg
 url: https://raw.githubusercontent.com/api-evangelist/aro-biotherapeutics/refs/heads/main/apis.yml
 x-type: company
