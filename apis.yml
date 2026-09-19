@@ -72,7 +72,7 @@ apis:
   baseURL: https://www.arobiotx.com/_api/mcp
   tags:
   - MCP
-  - Website
+  - Websites
   tags_raw:
   - Model Context Protocol
   - Website
